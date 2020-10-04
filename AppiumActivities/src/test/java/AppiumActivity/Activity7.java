@@ -54,11 +54,12 @@ public class Activity7 {
         System.out.println("Number of image shown currently: " + numberOfImages.size());
         
         // Assertion before scrolling
-        Assert.assertEquals(numberOfImages.size(), 4);
+        Assert.assertEquals(numberOfImages.size(), 2);
         
         // Scroll to Helen's post
-        driver.findElement(MobileBy.AndroidUIAutomator("UiScrollable(UiSelector()).scrollTextIntoView(\"helen\")"));
-        
+        //driver.findElement(MobileBy.AndroidUIAutomator("UiScrollable(UiSelector()).scrollTextIntoView(\"helen\")"));
+        driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"helen\").instance(0))"));
+                        
         // Find the number of images shown after scrolling
         numberOfImages = driver.findElementsByXPath("//android.view.View/android.view.View/android.widget.Image");
         System.out.println("Number of image shown currently: " + numberOfImages.size());
